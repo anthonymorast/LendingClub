@@ -193,7 +193,7 @@ class Session:
             self.__log('Data: {0}'.format(response.headers['x-echo-data']))
 
         # Parse any errors from the HTML
-        soup = BeautifulSoup(response.text, "html5lib")
+        soup = BeautifulSoup(response.text, "html.parser")
         errors = soup.find(id='master_error-list')
         if errors:
             errors = errors.text.strip()
